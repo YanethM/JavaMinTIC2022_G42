@@ -7,6 +7,7 @@ package veterinaria_mintic;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 /**
  *
  * @author apmejiar
@@ -23,6 +24,7 @@ public class Veterinaria_MINTIC {
         Date fecha_actual = new Date();
         //Caso 1: obtener la fecha en formato corto dia/mes/año:
         DateFormat formato_corto_fecha = new SimpleDateFormat("dd/MM/yyyy");
+        Scanner inst_entrada_datos = new Scanner(System.in);
         //Mediante la instancia llamamos los métodos set para asignar valor
         inst_mascota.setNombre_mascota("Rocky");
         inst_mascota.setFecha_nacimiento(formato_corto_fecha.format(fecha_actual));
@@ -57,6 +59,22 @@ public class Veterinaria_MINTIC {
         inst_mascota3.consultar_informacion_mascota_metodo();
         System.out.println("\n*****FUNCIÓN******");
         System.out.println(inst_mascota3.consultar_informacion_mascota_funcion());
+        
+        //Solicitamos la información al usuario
+        System.out.println(">>>>>>>>DILIGENCIA EL SIGUIENTE FORMULARIO<<<<<<<\nNombre:");
+        String nombre_dueño = inst_entrada_datos.nextLine();
+        
+        System.out.println("Tipo de documento:");
+        String tipo_documento = inst_entrada_datos.nextLine();
+        
+        System.out.println("N° de documento:");
+        int nro_documento = inst_entrada_datos.nextInt();
+        
+        System.out.println("N° de telefono:");
+        int contacto = inst_entrada_datos.nextInt();
+        
+        //Instanciamos la clase del dueño de la mascota
+        DueñoMascotaClass inst_dueño = new DueñoMascotaClass(nombre_dueño, tipo_documento, nro_documento, contacto, inst_mascota2.getNombre_mascota());
+        System.out.println(inst_dueño.consultar_informacion_dueño());
     }
-    
 }
