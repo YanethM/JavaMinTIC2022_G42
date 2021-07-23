@@ -1,1 +1,0 @@
-# JavaMinTIC2022
